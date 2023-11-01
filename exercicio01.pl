@@ -33,4 +33,7 @@ irma(X, Y) :- progenitor(Z, X), progenitor(Z, Y), X \= Y, sexo(X, feminino).
 primaParteMae(X, Y) :- progenitor(Z, X), progenitor(W, Y), irma(Z, W), sexo(Y, feminino).
 primoParteMae(X, Y) :- progenitor(Z, X), progenitor(W, Y), irma(Z, W), sexo(Y, masculino).
 
+sobrinho(X,Y) :- sexo(X,masculino), progenitor(P,Y), irmao(P,X).
+sobrinha(X,Y) :- sexo(X,feminino), progenitor(P,Y), irma(P,X).
+
 descendente(X, Y) :- progenitor(Y, X).
